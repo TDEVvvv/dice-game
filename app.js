@@ -62,7 +62,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
     // ug toglogchiin eeljnii onoog global onoo deer nemj ugnu
     scores[activePlayer] = scores[activePlayer]+roundScore;
     document.getElementById('score-'+activePlayer).textContent=scores[activePlayer]
-    if(scores[activePlayer]>=10){
+    if(scores[activePlayer]>=100){
         document.getElementById('name-'+activePlayer).textContent='Winner!!!'
         isNewGame = true;
         
