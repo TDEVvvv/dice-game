@@ -1,10 +1,16 @@
-// тоглогчийн ээлжийг хадгалах хувьсагч, нэгдүгээр тоглогчийг 0, хоёрдугаар тоглогчийг 1 гэж тэмдэглэе.
 var activePlayer = 0;
-
-// тоглогчдийн цуглуулсан оноо хадгалах хувьсагч
 var scores = [0, 0]
+var roundScore = 0;
+var diceDom = document.querySelector('.dice');
+initGame()
+function initGame(){
+    // тоглогчийн ээлжийг хадгалах хувьсагч, нэгдүгээр тоглогчийг 0, хоёрдугаар тоглогчийг 1 гэж тэмдэглэе.
+
+activePlayer = 0;
+// тоглогчдийн цуглуулсан оноо хадгалах хувьсагч
+scores = [0, 0]
 // тоглогчийн ээлжиндээ цуглуулж байгаа оноог хадгалах хувьсагч
-var roundScore = 0
+roundScore = 0
 // шооны аль талаараа буусныг хадгалах хувьсагч хэрэгтэй, 1-6 гэсэн утгыг энэ хувьсагчид санамсаргүйгээр үүсгэж өгнө.
 
 
@@ -15,9 +21,12 @@ document.getElementById('score-0').textContent = 0;
 document.getElementById('score-1').textContent = 0;
 document.getElementById('current-0').textContent = 0;
 document.getElementById('current-1').textContent = 0;
-
-var diceDom = document.querySelector('.dice');
 diceDom.style.display = 'none';
+
+document.getElementById('name-0').textContent = 'Player 1';
+document.getElementById('name-1').textContent = 'Player 2';
+
+}
 // shoog shideh event listiner
 document.querySelector('.btn-roll').addEventListener('click',function(){
     // 1-6 hoorond sanamsargui too
@@ -61,4 +70,4 @@ function switchToNextPlayer(){
     diceDom.style.display = 'none';
 }
 // new game button eventlistener
-document.querySelector('.btn-new').addEventListener
+document.querySelector('.btn-new').addEventListener('click', initGame);
