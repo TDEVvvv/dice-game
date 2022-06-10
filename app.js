@@ -33,18 +33,32 @@ document.querySelector('.btn-roll').addEventListener('click',function(){
         document.getElementById('current-'+activePlayer).textContent=roundScore
     }else {
         diceDom.style.display = 'none';
-        roundScore=0;
         document.getElementById('current-'+activePlayer).textContent = 0;
-        // 1 buusan tul toglogchiin eeljiig ene hesegt solij ugnu
-        activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0)
-
-        document.querySelector('.player-0-panel').classList.toggle('active');
-        document.querySelector('.player-1-panel').classList.toggle('active');
-        // if(activePlayer===0){
-        //     activePlayer = 1;
-        // }else {
-        //     activePlayer = 0
-        // }
+        switchToNextPlayer()
+        
     }
     
 });
+// hold button event listener
+document.querySelector('.btn-hold').addEventListener('click', function(){
+    // ug toglogchiin eeljnii onoog global onoo deer nemj ugnu
+    scores[activePlayer] = scores[activePlayer]+roundScore;
+    document.getElementById('score-'+activePlayer).textContent=scores[activePlayer]
+    if(scores[activePlayer]>=100){
+        document.getElementById('name-'+activePlayer).textContent='Winner!!!'
+        
+    }else {
+        switchToNextPlayer()
+    }
+    
+});
+function switchToNextPlayer(){
+    roundScore = 0;
+    document.getElementById('current-'+activePlayer).textContent=0
+    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0)
+    document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+    diceDom.style.display = 'none';
+}
+// new game button eventlistener
+document.querySelector('.btn-new').addEventListener
